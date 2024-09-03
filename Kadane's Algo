@@ -1,0 +1,28 @@
+Company Tags
+Zoho ,Flipkart, Morgan, Stanley,Accolite,Amazon,Microsoft,Samsung,Snapdeal,24*7 Innovation Labs,Citrix,D-E-Shaw,FactSet,Hike,Housing.com,MetLife,Ola Cabs,Oracle,Payu,Teradata,Visa,Walmart,Adobe,Google, Arcesium
+
+
+Given an integer array arr[]. Find the contiguous sub-array(containing at least one number) that has the maximum sum and return its sum. 
+Input: arr[] = [1, 2, 3, -2, 5]
+Output: 9
+Explanation: Max subarray sum is 9 of elements (1, 2, 3, -2, 5) which is a contiguous subarray.
+
+Input: arr[] = [-1, -2, -3, -4]
+Output: -1
+Explanation: Max subarray sum is -1 of element (-1)
+
+
+Code -> optimal approach
+
+class Solution {
+  public:
+    long long maxSubarraySum(vector<int> &arr) {
+        int CurrentSum=arr[0];
+        int MaxSum=arr[0];
+        for(int i=1;i<arr.size();i++){
+            CurrentSum=max(arr[i],CurrentSum+arr[i]);
+            MaxSum=max(MaxSum,CurrentSum);
+        }
+        return MaxSum;
+    }
+};
