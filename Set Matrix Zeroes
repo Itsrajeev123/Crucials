@@ -1,0 +1,90 @@
+Given an m x n integer matrix matrix, if an element is 0, set its entire row and column to 0's. 
+
+Example :
+
+input:       output:
+1  1  1      1  0  1
+1  0  1  ->  0  0  0 
+1  1  1      1  0  1 
+
+
+Solution:
+
+BRUTE FORCE : [(n*m) (n+m) + (n*m)]
+sabse pehle do function banaynege,  MarkRow and MarkCol , jaha 0 dikha uske row mein pehle sab 1 ko -1 krenge (MarkRow), and column mein 1 ko -1 krnege (MarkCol).
+uske baad matrix mein traverse krke dono function call krege , and then jaha jaha -1 hai waha 0 kr denge .
+
+pseudo type code:
+
+MarkRow(i){
+for(j=0;j<m;j++){
+if(arr[i][j]!=0)
+arr[i][j]=-1;
+}
+}
+
+MarkCol(j){
+for(i=0;i<n;j++){
+if(arr[i][j]!=0)
+arr[i][j]=-1;
+}
+}
+
+for(int i=0;i<n;i++){
+for(int j=0;j<m;j++){
+if(arr[i][j]==0){
+MarkRow(i);
+MarkCol(j);
+}
+}
+}
+
+for(int i=0;i<n;i++){
+for(int j=0;j<m;j++){
+if(arr[i][j]==-1)
+arr[i][j]=0;
+}
+}
+
+BETTER SOLUTION : isme approach ye hai ki ek row and col alag se bana denge and sabhi elemnts unke 0 honge, uske baad jaha jaha 0 honge matrix mein  uske according naye banaye hue columns and row mein 
+uss index pe 1 assign kr denge , uske baad loop se bahar niklane ke baad , ek naye loop mein traverse krenge and see agar col and row mein kahi 1 hai then matrix mein uss position 0 kr denge.
+and at last uss matrix ko return kra denge.
+T.C-> O(2*n*m) S.C -> O(n)+O(m)
+
+code :
+
+
+class Solution {
+public:
+    void setZeroes(vector<vector<int>>& matrix) {
+        int n = matrix.size();
+        int m = matrix[0].size();
+        int col[m]={0};
+        int row[n]={0};
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                if(matrix[i][j]==0){
+                    row[i]=1;
+                    col[j]=1;
+                }
+            }
+        }
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                if(row[i]|| col[j]){
+                    matrix[i][j]=0;
+                }
+            }
+        }
+    }
+};
+
+
+
+
+
+
+
+
+
+
