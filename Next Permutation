@@ -1,0 +1,36 @@
+You have been given a permutation of ‘N’ integers.
+A sequence of ‘N’ integers is called a permutation if it contains all integers from 1 to ‘N’ exactly once. 
+Your task is to rearrange the numbers and generate the lexicographically next greater permutation.
+To determine which of the two permutations is lexicographically smaller, we compare their first elements of both permutations. 
+If they are equal — compare the second, and so on. If we have two permutations X and Y, then X is lexicographically smaller if X[i] < Y[i], where ‘i’ is the first index in which the permutations X and Y differ.
+
+
+example:
+n=5  arr= 2 3 1 4 5
+output= 2 3 1 5 4
+
+
+code optimized:
+
+#include <bits/stdc++.h> 
+vector<int> nextPermutation(vector<int> &permutation, int n){
+    int ind=-1;
+        for(int i=n-2;i>=0;i--){
+            if(permutation[i]<permutation[i+1]){
+                ind=i;
+                break;
+            }
+        }
+        if(ind==-1){
+            reverse(permutation.begin(),permutation.end());
+            return permutation;
+        }
+        for(int i=n-1;i>ind;i--){
+            if(permutation[i]>permutation[ind]){
+                swap(permutation[i],permutation[ind]);
+                break;
+            }
+        }
+        reverse(permutation.begin()+ind+1,permutation.end());
+        return permutation;
+}
