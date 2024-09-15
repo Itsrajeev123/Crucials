@@ -11,7 +11,7 @@ approach 1 :  brute force  T.C and S.C=O(n^2)
 
 approach 2: optimized T.C=O(n/2 * n)+O(n/2) S.C=O(1)   
 
-code (optimized)
+code (optimized) 
 
 class Solution {
 public:
