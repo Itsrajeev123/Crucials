@@ -13,7 +13,7 @@ int longestSubarrayWithSumK(vector<int> a, long long k) {
     int i=0,j=0,len=0;
     long long sum=0;
     while(j<n){
-        sum+=a[j];
+        sum+=a[j]; 
         while(sum>k){
             sum-=a[i];
             i++;
