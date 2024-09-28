@@ -6,7 +6,7 @@ If they are equal — compare the second, and so on. If we have two permutations
 
 
 example:
-n=5  arr= 2 3 1 4 5
+n=5  arr= 2 3 1 4 5 
 output= 2 3 1 5 4
 
 
