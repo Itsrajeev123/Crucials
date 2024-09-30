@@ -6,7 +6,7 @@ Output: 3
 
 
 
-class Solution {
+class Solution { 
 public:
     int majorityElement(vector<int>& nums) {
         // brute force -> O(n^2)
