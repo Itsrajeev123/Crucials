@@ -4,7 +4,7 @@ The first line of input contains two space-separated integers n and k.
 The second line contains n space-separated integers denoting the position of the stalls.
 
 Input: n=5  k=3
-stalls = [1 2 4 8 9]
+stalls = [1 2 4 8 9] 
 Output: 3
 
 
